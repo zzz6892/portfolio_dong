@@ -1,0 +1,217 @@
+*{
+    padding: 0;
+    margin:0;
+    font-family: 'Hind', sans-serif;
+}
+/*Css dùng chung cho nhiều ele (thẻ) thì viết riêng*/
+span.active {
+    font-size: 16px;
+    font-weight: 400;
+    color:#35a22c !important;
+    border-bottom:3px solid #35a22c !important;
+}
+/*Css từng phần layout thì theo thứ tự từ ngoài ngoài trong*/
+.header .container{
+    height: 75px;
+}
+
+.header .menu ul {
+    list-style: none;
+}
+
+.header .menu ul li {
+}
+
+.header .menu ul li a {
+    text-decoration: none;
+    color:#fff;
+    position: relative;
+
+}
+.header .menu ul li a:hover {
+    color:#35a22c;
+    transition: color 0.5s;
+}
+.header .menu ul li a::after {
+    content: '';
+    width: 0px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    bottom: -5px;
+    left: 0; 
+    transition: width 0.5s;
+}
+/*hover vào thẻ a after sẽ thay đổi*/
+.header .menu ul li a:hover::after{
+    width: 100%;
+    color: #35a22c;
+    background-color: #35a22c;
+    transition: width 0.5s;
+}
+
+/*css cho phần carousel*/
+.slider {
+    position: relative;
+}
+.slider .carousel {
+    height: 100vh;
+}
+.slider .carousel-indicators,.slider .carousel-control-prev, .slider .carousel-control-next,.carousel-caption{
+    z-index: 11;
+}
+
+.slider .carousel-inner {
+    height: 100%;
+}
+
+.slider .carousel-item img{
+    object-fit: cover ; /*Tương tự thuộc tính của background-size*/
+    height:100vh;
+}
+.slider .carousel-inner .overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 10;
+    position: absolute;
+}
+.carousel-control-prev, .carousel-control-next {
+    display: none;
+}
+.slider .carousel .carousel-caption {
+    color:#fff !important;
+
+}
+.slider .carousel .carousel-indicators {
+    height:auto;
+}
+.slider .carousel .carousel-indicators button {
+    border-radius: 50%;
+    width: 30px !important;
+    height: 30px !important;
+    background: #fff;
+    border:none;
+    padding:0;
+}
+.slider .carousel .carousel-indicators button.active {
+    background: #35a22c;
+}
+
+.slider .carousel .carousel-caption {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    z-index: 10;
+}
+
+.slider .carousel .carousel-caption img {
+    opacity: 0;
+    width: 100px;
+    height: 100px;
+    margin:10px auto;
+    animation:fadeUp 1s; 
+    animation-fill-mode: both; /*Giữ lại trạng thái cuối cùng của animation*/
+}
+.slider .carousel .carousel-caption h5{
+    opacity: 0;
+    animation: fadeUp 1s;
+    animation-delay: 1s; /*Đợi sau 1 giây thì animation mới chạy*/
+    animation-fill-mode: both; /*Giữ lại trạng thái cuối cùng của animation*/
+}
+.slider .carousel .carousel-caption p{
+    opacity: 0;
+    animation: fadeUp 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both; /*Giữ lại trạng thái cuối cùng của animation*/
+}
+
+/*css card project */
+.project .card:hover{
+    border-color: #35a22c;
+    color:#35a22c;
+    transition: all 1s;
+    cursor:pointer;
+}
+
+.project .card {
+    animation:scale-item 1s;
+}
+
+.project button.nav-link {
+    color:#000;
+} 
+
+.project button.nav-link.active {
+    background: #35a22c;
+    color:#fff;
+} 
+
+@keyframes fadeUp {
+    0%{ 
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.available {
+    min-height: 600px;
+    background-image: url(/img/3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+/* .available .container {
+    position: absolute;
+    width:100%;
+    height:100%;
+    z-index: 10;
+    top:0;
+    left:0;
+} */
+.available .content  {
+    width:100%;
+    height:100%;
+    min-height: 600px;
+
+    background: rgba(0, 0, 0, .5);
+    
+}
+
+.available .card{
+    background: transparent;
+    transition: background 0.5s;
+
+}
+.available .card:hover {
+    cursor: pointer;
+    background: black;
+    transition: background 0.5s;
+}
+
+
+.achievement {
+    min-height: 450px;
+    background: url(/img/memphis_3.png) 0 100% no-repeat, url(/img/memphis_2.png) bottom right no-repeat;
+    background-size: 550px , 600px;
+    /* background-position: 0px 100% , bottom right;
+    background-repeat: no-repeat, repeat; */
+}
+
+
+@keyframes scale-item {
+    0%{
+        transform: scale(0,0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1,1);
+        opacity: 1;
+    }
+}
